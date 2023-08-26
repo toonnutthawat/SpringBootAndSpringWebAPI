@@ -28,5 +28,26 @@ public class RestaurantController {
         return service.getRestaurantById(id);
     }
 
+    @PutMapping("/restaurant")
+    public Restaurant update(@RequestBody Restaurant restaurant) {
+        return service.update(restaurant);
+    }
 
+    @DeleteMapping("/restaurant/{id}")
+    public Restaurant delete(@PathVariable UUID id) {
+        return service.delete(id);
+    }
+
+    @GetMapping("/restaurant/name/{name}")
+    public Restaurant getRestaurantByName(@PathVariable String name) {
+        return service.getRestaurantByName(name);
+    }
+
+
+    @GetMapping("/restaurant/location/{location}")
+    public List<Restaurant> getRestaurantByLocation(@PathVariable String location) {
+        return service.getRestaurantByLocation(location);
+    }
 }
+
+
